@@ -58,5 +58,9 @@ When deciding on how to handle the AI, I had a choice between a fully custom sol
 
 In the original Pacman game, the AI's behavior was very advanced for the time and I wanted to implement it similarly to how it was originally done. I read a great article (https://gameinternals.com/understanding-pac-man-ghost-behavior) on how the AIs behave and started by implementing a simple movement script. 
 
-The movement logic I implemented only makes the AIs make a decision when they reach a predefined point on the map. Since the game operates on a linear grid, the AIs then use a simplified version of the `RayCast2D` check Pacman does to determine their available movements once they reach a decision point. 
+The movement logic I implemented only makes the AIs make a decision when they reach a predefined point on the map. Since the game operates on a linear grid, the AIs then use a simplified version of the `RayCast2D` check Pacman does to determine their available movements once they reach a decision point.
+
+Green - Decision Point
+Purple - Corner 
+
 ![image](https://github.com/user-attachments/assets/1a7f15ee-fd3e-4f64-bee4-7ebcb74a93c6)
