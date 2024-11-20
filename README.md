@@ -32,7 +32,7 @@ With the collision detection being so precise, expecting the player to press the
     }
 ```
 
-From here it's a pretty standard Vector calculation to determine direction. The only caveat to that is, that I slightly shrunk the Pacman sprite to 95% of its original size to fit better, so there was the potential the sprite could be misaligned and mess up future moves. Before any potential movements, I round Pacman's position to the nearest 0.25 (based on the grid size) depending on the axis he's moving on. Even with the initial rounding, I found that occasionally the alignment would be incorrect, so a secondary rounding is placed and truncates the position to 2 decimal places. 
+From here it's a pretty standard Vector calculation to determine direction. The only caveat is that I slightly shrunk the Pacman sprite to 95% of its original size to fit better which added the potential the sprite could be misaligned and mess up future moves. Before any potential movements, I round Pacman's position to the nearest 0.25 (based on the grid size) depending on the axis he's moving on. Even with the initial rounding, I found that occasionally the alignment would be incorrect, so a secondary rounding is placed and truncates the position to 2 decimal places. 
 
 ```
     private void AlignPositionOnAxis(bool alignX)
