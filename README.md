@@ -61,6 +61,7 @@ In the original Pacman game, the AI's behavior was very advanced for the time an
 The movement logic I implemented only makes the AIs make a decision when they reach a predefined point on the map. Since the game operates on a linear grid, the AIs then use a simplified version of the `RayCast2D` check Pacman does to determine their available movements once they reach a decision point.
 
 Green - Decision Point
+
 Purple - Corner 
 
 ![image](https://github.com/user-attachments/assets/1a7f15ee-fd3e-4f64-bee4-7ebcb74a93c6)
