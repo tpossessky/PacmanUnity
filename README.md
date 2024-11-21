@@ -64,6 +64,26 @@ Green - Decision Point
 
 Purple - Corner 
 
-![image](https://github.com/user-attachments/assets/1a7f15ee-fd3e-4f64-bee4-7ebcb74a93c6)
+![image](https://github.com/user-attachments/assets/8bbf4636-f8d0-416d-a470-1115ccc29b8c)
 
-NOTE: This image is missing 2 decision points that I initially missed. 
+The AIs inherit from the base `BaseAIMovement` script. This script is responsible for actually moving the AIs around and the individual ghosts can request their preference of movement in a `Queue<Vector2>`.
+
+### Red Ghost
+
+The Red Ghost's job is to go directly towards the player. This is fairly simple behavior where all that's needed is to calculate which direction to move in based on relative x and y distances, and then add them to the queue. 
+
+```
+PSEUDOCODE
+
+if abs(deltaX) > abs(deltaY)
+    enqueue(deltaX > 0 ? right : left)
+else
+    enqueue(deltaY > 0 ? up : down)
+
+# Secondary preferences
+
+if pref == up or down
+    enqueue(deltaX > 0 ? right : left)
+if pref == left or right
+    enqueue(deltaY > 0 ? up : down)
+```
