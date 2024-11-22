@@ -54,7 +54,7 @@ From here it's a pretty standard Vector calculation to determine direction. The 
 ```
 ## AI Behavior
 
-When deciding on how to handle the AI, I had a choice between a fully custom solution and using Unity's built-in Navmesh systems. To better understand AI at a baseline level, I decided to go the fully custom route.
+When deciding on how to handle the AI, I had a choice between a fully custom solution and using Unity's built-in Navmesh systems. I decided to go the fully custom route to understand AI at a baseline level better.
 
 In the original Pacman game, the AI's behavior was very advanced for the time and I wanted to implement it similarly to how it was originally done. I read a great article (https://gameinternals.com/understanding-pac-man-ghost-behavior) on how the AIs behave and started by implementing a simple movement script. 
 
@@ -72,18 +72,24 @@ The AIs inherit from the base `BaseAIMovement` script. This script is responsibl
 
 The Red Ghost's job is to go directly towards the player. This is fairly simple behavior where all that's needed is to calculate which direction to move in based on relative x and y distances, and then add them to the queue. 
 
-```
-PSEUDOCODE
+### Pink Ghost
 
-if abs(deltaX) > abs(deltaY)
-    enqueue(deltaX > 0 ? right : left)
-else
-    enqueue(deltaY > 0 ? up : down)
+The Pink Ghost chooses a location 4 units in front of the player based on their current velocity
 
-# Secondary preferences
+### Orange Ghost
 
-if pref == up or down
-    enqueue(deltaX > 0 ? right : left)
-if pref == left or right
-    enqueue(deltaY > 0 ? up : down)
-```
+The Orange Ghost switches its behavior based on its linear distance to the player. Above 8 units, it acts the same as red but when it gets too close it defaults back to its Scatter location in a corner. 
+
+### Blue Ghost
+
+The Blue Ghost is the most complex of the 4. It calculates a position 2 units in front of the player then draws a vector from Red's position to that target and doubles it. This gives the final target.
+
+## AI Sample Video 
+
+The below video is from an early debug build where I was testing the AI targeting. 
+
+Green lines - "Chase mode" 
+
+Red lines - "Scatter mode" 
+
+![Pacman-SampleScene-WindowsMacLinux-Unity66000 0 27f1_DX11_2024-11-2121-39-37-ezgif com-optimize](https://github.com/user-attachments/assets/1c1cc2f2-6881-4708-a762-2d1100e4f547)
