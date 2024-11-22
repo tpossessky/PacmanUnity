@@ -4,6 +4,8 @@
 
 Yet another fairly large step up in complexity. Difficult, pixel-perfect movement behavior and AI were the two defining challenges here.
 
+For this game, I stayed with my mantra thus far of avoiding tutorials as much as possible unless it came to an engine-specific goal such as animating the characters. My design may be less than optimal but part of my goal is to fail throughout each game and use that as an opportunity to improve for the next one.  
+
 ## Collision/Movement
 ### Collision
 Games 1-4 all featured fairly open layouts where simple box colliders did the trick. With Pacman, I dealt with a tilemap in 8x8pixel grids and character sprites in 16x16 grids. This meant the gaps in the maze Pacman could move in were nearly pixel-perfect. My first approach was to try a `BoxCollider2D` and `TileMapCollider` to handle everything. I ran into issues immediately with the movements not being pixel-perfect and getting stuck in the maze.
